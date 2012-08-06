@@ -14,8 +14,8 @@ main::IO()
 main = runTCPServer (ServerSettings 4000 HostAny) server
      
 server::Application IO 
-server src sink = do           
-           src =$ Ct.decode Ct.utf8 =$ Ct.encode Ct.utf8 $$ Cb.sinkFile "something.txt"
-           print "fertig"
+server src sink = do  
+                  runResourceT src $$ Ct.decode Ct.utf8 =$ Ct.encode Ct.utf8 =$ Cb.sinkFile "something.txt"
+          -- print "fertig"
             
        
