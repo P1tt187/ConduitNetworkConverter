@@ -1,0 +1,16 @@
+name:           ConduitNetworkTest
+version:        0.1
+cabal-version:  >= 1.2
+build-type:     Simple
+author:         fabian
+license:        GPL-3
+
+executable ConduitNetworkTest
+  hs-source-dirs:  src
+  main-is:         Main.hs
+  build-depends:   
+                   base >= 4,
+                   conduit,
+                   network-conduit
+  ghc-options:     -Wall
+
