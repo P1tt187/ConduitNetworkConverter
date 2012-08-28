@@ -13,7 +13,7 @@ main::IO()
 main = runTCPServer (ServerSettings 4000 HostAny) server
      
      
-server::Nw.Application IO 
+server::GSource -> GSink
 server src _ = do
         x<- src $$ consume                    
         runResourceT $ sourceList x $$ Ct.decode Ct.utf8 =$ Prm.readMarkdown =$ Pwh.writeHtmlString =$ Ct.encode Ct.utf8 =$ Cb.sinkFile "something.txt"
